@@ -12,8 +12,11 @@ class Router
             case '/features':
                 $this->load('FeaturesController');
                 break;
-            case '/pricing':
-                $this->load('PricingController');
+            case '/login':
+                $this->load('LoginController');
+                break;
+            case '/dashboard':
+                $this->load('AuthController', ['username' => $_POST['username'] ?? '', 'pass' => $_POST['password'] ?? '']);
                 break;
             default:
                 $this->load('HomeController');
@@ -22,7 +25,7 @@ class Router
     }
 
 
-    private function load($ctrlName)
+    private function load($ctrlName, $data = [])
     {
         $filename = "app/controllers/$ctrlName.php";
 
@@ -31,7 +34,7 @@ class Router
 
             $controller = new $ctrlName();
 
-            $controller->handle();  
+            $controller->handle($data);
         }
     }
 }

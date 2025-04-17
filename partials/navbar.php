@@ -33,8 +33,8 @@ function isActive($uri)
                         href="/features">Features</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?= isActive('/pricing') ? 'active text-primary' : '' ?>" aria-current="page"
-                        href="/pricing">Pricing</a>
+                    <a class="nav-link <?= isActive('/login') ? 'active text-primary' : '' ?>" aria-current="page"
+                        href="/login">Login</a>
                 </li>
             </ul>
         </div>

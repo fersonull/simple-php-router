@@ -9,6 +9,7 @@
 
 <body>
     <h1>This is Features View</h1>
+    <?php print_r($data) ?>
 </body>
 
 </html>

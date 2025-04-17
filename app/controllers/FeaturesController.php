@@ -2,8 +2,9 @@
 
 class FeaturesController
 {
-    public function handle()
+    public function handle($data = [])
     {
+        extract($data);
         $title = "Features";
         ob_start();
         include 'app/views/features.view.php';
