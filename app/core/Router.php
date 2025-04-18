@@ -3,29 +3,29 @@
 class Router
 {
 
-    public function dispatch($uri)
+    public static function dispatch($uri)
     {
         switch ($uri) {
             case '/':
-                $this->load('HomeController');
+                self::load('HomeController');
                 break;
             case '/features':
-                $this->load('FeaturesController');
+                self::load('FeaturesController');
                 break;
             case '/login':
-                $this->load('LoginController');
+                self::load('LoginController');
                 break;
             case '/dashboard':
-                $this->load('AuthController', ['username' => $_POST['username'] ?? '', 'pass' => $_POST['password'] ?? '']);
+                self::load('AuthController', ['username' => $_POST['username'] ?? '', 'pass' => $_POST['password'] ?? '']);
                 break;
             default:
-                $this->load('HomeController');
+                self::load('HomeController');
                 break;
         }
     }
 
 
-    private function load($ctrlName, $data = [])
+    public static function load($ctrlName, $data = [])
     {
         $filename = "app/controllers/$ctrlName.php";
 
